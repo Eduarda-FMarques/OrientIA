@@ -1,0 +1,5 @@
+# OrientIA is a plain static site (HTML, CSS and vanilla JS) with no
+# dependencies and no compile step. Netlify publishes the folder as-is.
+[build]
+  publish = "OrientIA/OrientIA"
+  command = ""
