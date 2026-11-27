@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eef2f7">
+<meta name="description" content="Orientações para usar IA generativa ao estudar programação.">
+<title>OrientIA · Guia de uso de IA em programação</title>
+<link rel="stylesheet" href="style.css">
+<script defer src="data.js"></script>
+<script defer src="logic.js"></script>
+<script defer src="pdf.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap bar">
+  <a class="brand" href="./index.html"><span class="mark" aria-hidden="true">&lt;/&gt;</span>Orient<span>IA</span></a>
+  <button id="theme" class="quiet" type="button" aria-pressed="false">☾ <span>Tema escuro</span></button>
+</div></header>
+<main class="wrap">
+  <header class="hero">
+    <h1>IA na hora de programar</h1>
+    <p>Escolha a atividade e o tipo de ajuda para saber o que vale pedir à IA e quais cuidados tomar.</p>
+  </header>
+  <div class="workspace">
+    <form id="analysisForm" class="panel">
+      <h2>Monte seu cenário</h2>
+      <fieldset><legend>Qual é a atividade?</legend>
+        <div class="choices">
+          <label><input type="radio" name="contexto" value="estudo" checked><span>Estudo livre</span></label>
+          <label><input type="radio" name="contexto" value="pratica"><span>Exercício de prática</span></label>
+          <label><input type="radio" name="contexto" value="trabalho"><span>Trabalho acadêmico</span></label>
+          <label><input type="radio" name="contexto" value="avaliacao"><span>Avaliação</span></label>
+        </div>
+      </fieldset>
+      <fieldset id="authorization" hidden><legend>O uso de IA foi autorizado?</legend>
+        <div class="choices compact">
+          <label><input type="radio" name="autorizacao" value="sim"><span>Sim</span></label>
+          <label><input type="radio" name="autorizacao" value="nao"><span>Não</span></label>
+          <label><input type="radio" name="autorizacao" value="nao_sei" checked><span>Não sei</span></label>
+        </div>
+      </fieldset>
+      <div class="field"><label for="tipoUso">Que ajuda você quer pedir?</label>
+        <select id="tipoUso" required aria-describedby="usePreview"></select>
+        <p id="usePreview"></p>
+      </div>
+      <button class="primary" type="submit">Ver orientação <span aria-hidden="true">→</span></button>
+    </form>
+    <section class="panel output" aria-labelledby="output-title">
+      <header class="output-header">
+        <h2 id="output-title"><span aria-hidden="true">&gt;_</span> Sua orientação</h2>
+        <div class="key"><span class="good">Recomendado</span><span class="medium">Cautela</span><span class="low">Evitar</span></div>
+      </header>
+      <div id="empty" class="empty">
+        <p>Escolha um cenário e clique em <strong>Ver orientação</strong>.</p>
+      </div>
+      <div id="orientationTabs" class="file-tabs" role="group" aria-label="Orientações abertas" hidden></div>
+      <div id="result" hidden>
+        <div class="editor-document">
+          <div id="badge" class="status"></div>
+          <h3 id="resultTitle" tabindex="-1" data-type></h3>
+          <p id="summary" data-type></p>
+          <p id="contextAlert" class="notice" data-type hidden></p>
+          <p class="editor-indent" data-type><strong class="syntax-key">Benefício:</strong> <span id="beneficio"></span></p>
+          <p class="editor-indent" data-type><strong class="syntax-key warning">Risco:</strong> <span id="risco"></span></p>
+          <p class="editor-indent" data-type><strong class="syntax-key">Como reduzir o risco:</strong> <span id="mitigacao"></span></p>
+          <div class="prompt">
+            <div class="prompt-head"><h4 id="promptTitle" data-type>Exemplo de pedido</h4><button id="copy" class="quiet" type="button">Copiar</button></div>
+            <blockquote id="promptText" data-type></blockquote>
+            <p id="feedback" role="status"></p>
+          </div>
+          <details id="details"><summary data-type>Critérios da orientação</summary><p id="participation"></p><dl id="criteria"></dl></details>
+          <div class="editor-actions">
+            <button id="skipTyping" class="quiet" type="button" hidden>Mostrar tudo</button>
+            <button id="downloadPdf" class="quiet" type="button">Baixar orientações em PDF</button>
+          </div>
+        </div>
+      </div>
+      <p id="announcement" class="sr-only" role="status"></p>
+    </section>
+  </div>
+  <section class="panel evaluation" aria-labelledby="evaluationTitle">
+    <div><h2 id="evaluationTitle">Avalie o OrientIA</h2><p>Depois de testar a ferramenta, conte como foi sua experiência no formulário do projeto.</p></div>
+    <a class="quiet" href="https://forms.gle/VwDXLiH6v9EgKjLs8" target="_blank" rel="noopener noreferrer">Avaliar a ferramenta <span aria-hidden="true">↗</span><span class="sr-only"> (abre em nova aba)</span></a>
+  </section>
+</main>
+<footer class="wrap footer"><strong>OrientIA</strong><span>Desenvolvido por Eduarda Fortuna Marques, autora do projeto.</span></footer>
+</body>
+</html>
